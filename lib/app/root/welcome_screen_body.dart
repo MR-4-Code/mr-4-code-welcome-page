@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:palstore_welcome_page/app/widgets/build_main_app_bar.dart';
 import 'package:palstore_welcome_page/core/utils/launcher_utils.dart';
 
 import '../../core/constants/assets_keys.dart';
@@ -15,6 +16,7 @@ class WelcomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const BuildMainAppBar(),
       body: Container(
         decoration: const BoxDecoration(color: Palette.lightGreen),
         child: Stack(
