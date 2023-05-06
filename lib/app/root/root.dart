@@ -11,6 +11,7 @@ class WelcomeScreen extends StatelessWidget {
     return const GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'PalStore',
+        initialRoute: '/',
         home: WelcomeScreenBody());
   }
 }
