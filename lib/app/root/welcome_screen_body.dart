@@ -29,7 +29,7 @@ class WelcomeScreenBody extends StatelessWidget {
                     borderRadius:
                         BorderRadius.only(bottomLeft: Radius.circular(1000)))),
             const Positioned(
-              right: 20,
+              right: 40,
               bottom: 100,
               child: StoreButtons(),
             ),
@@ -79,20 +79,39 @@ class StoreButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const StoreButton(link: StoreLinks.playStore, image: Assets.playStore),
-        const BuildText(
-            data: 'Coming Soon on', size: 25.0, color: Palette.white),
-        Row(
-          children: const [
-            StoreButton(image: Assets.appGallery),
-            StoreButton(image: Assets.appStore),
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+      color: Colors.white.withOpacity(0.60),
+      elevation: 5.0,
+      shadowColor: Colors.amberAccent,
+      child: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const BuildText(
+              data: 'Download for mobile',
+              size: 16.0,
+              color: Colors.white,
+            ),
+            const SizedBox(height: 30.0),
+            const StoreButton(
+              link: StoreLinks.playStore,
+              image: Assets.playStore,
+            ),
+            const SizedBox(height: 30.0),
+            const BuildText(
+                data: 'Coming Soon on', size: 16.0, color: Colors.white),
+            const SizedBox(height: 10.0),
+            Row(children: const [
+              StoreButton(image: Assets.appGallery),
+              StoreButton(image: Assets.appStore),
+            ]),
+            const SizedBox(height: 10.0),
           ],
-        )
-      ],
+        ),
+      ),
     );
   }
 }
