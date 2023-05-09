@@ -8,15 +8,16 @@ class BuildMainAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        title: IconButton(
+    return Row(
+      children: [
+        IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {
             Get.dialog(const CustomDrawer());
           },
-        ));
+        )
+      ],
+    );
   }
 
   @override
