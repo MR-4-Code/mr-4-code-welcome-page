@@ -3,5 +3,5 @@ class StoreLinks {
       'https://play.google.com/store/apps/details?id=com.mrDev.mobile.palStore&hl=en&gl=US';
 
   static const windowsLink =
-      'https://drive.google.com/file/d/13kj3sZFFZxnzwOp1SeKipG4_nGQsbIik/view?usp=share_link';
+      'https://drive.google.com/file/d/1bATuJrnz4sJmV0M6TLx6qG-U-Sxrduti/view?usp=share_link';
 }
