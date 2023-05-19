@@ -4,4 +4,7 @@ class StoreLinks {
 
   static const windowsLink =
       'https://drive.google.com/file/d/1bATuJrnz4sJmV0M6TLx6qG-U-Sxrduti/view?usp=share_link';
+
+  static const facebookUri =
+      'https://www.facebook.com/profile.php?id=100092437285741';
 }

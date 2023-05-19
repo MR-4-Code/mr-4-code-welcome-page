@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palstore_welcome_page/core/constants/assets_keys.dart';
+import 'package:palstore_welcome_page/core/presentation/style/palette.dart';
 import 'package:palstore_welcome_page/core/utils/launcher_utils.dart';
 
-class StoreButton extends StatelessWidget {
+class StoreButton extends StatefulWidget {
   final String? link;
   final String image;
 
@@ -11,16 +12,23 @@ class StoreButton extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<StoreButton> createState() => _StoreButtonState();
+}
+
+class _StoreButtonState extends State<StoreButton> {
+  bool hover = false;
+
+  @override
   Widget build(BuildContext context) {
     IconData icon = Icons.download_for_offline;
     Color iconColor = Colors.grey;
     String title = '';
 
-    if (image == Assets.playStore) {
+    if (widget.image == Assets.playStore) {
       icon = Icons.android;
       title = 'Android';
       iconColor = Colors.green;
-    } else if (image == Assets.appStore) {
+    } else if (widget.image == Assets.appStore) {
       icon = Icons.apple;
       title = 'App Store';
       iconColor = Colors.black;
@@ -30,10 +38,22 @@ class StoreButton extends StatelessWidget {
       iconColor = Colors.pinkAccent;
     }
     return TextButton(
-        onPressed: link == null
+        onHover: (value) {
+          hover = value;
+          setState(() {});
+        },
+        style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(
+                widget.link == null ? Colors.black26 : Palette.offWhite),
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                side: hover
+                    ? const BorderSide(color: Colors.amberAccent)
+                    : BorderSide.none))),
+        onPressed: widget.link == null
             ? null
             : () {
-                LauncherUtils.to(link!);
+                LauncherUtils.to(widget.link!);
               },
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -41,8 +61,8 @@ class StoreButton extends StatelessWidget {
             Icon(icon, color: iconColor),
             const SizedBox(width: 10.0),
             Text(title,
-                style: GoogleFonts.actor(
-                    fontSize: 18.0, fontWeight: FontWeight.bold)),
+                style:
+                    GoogleFonts.quicksand(fontSize: 18.0, color: Colors.white)),
           ],
         ));
   }
