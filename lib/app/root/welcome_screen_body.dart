@@ -23,9 +23,10 @@ class WelcomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const secondContainerRadius = Radius.circular(radius);
+    double margin = MediaQuery.of(context).size.width < 800 ? 20.0 : 40.0;
     return Scaffold(
       body: Card(
-        margin: const EdgeInsets.all(40),
+        margin: EdgeInsets.all(margin),
         shape: RoundedRectangleBorder(
             borderRadius: borderRadius,
             side: const BorderSide(color: Palette.lightGreen, width: 2)),
