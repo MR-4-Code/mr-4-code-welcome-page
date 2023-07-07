@@ -24,9 +24,15 @@ class Footer extends StatelessWidget {
   }
 
   Widget get _socialRow {
-    return Row(
-      children: [faceBook, email],
-    );
+    return Row(children: [loginButton, faceBook, email]);
+  }
+
+  Widget get loginButton {
+    return IconButton(
+        onPressed: () {
+          LauncherUtils.to(StoreLinks.webAppLogin);
+        },
+        icon: const Icon(Icons.login));
   }
 
   Widget get faceBook {
@@ -34,7 +40,7 @@ class Footer extends StatelessWidget {
         onPressed: () {
           LauncherUtils.to(StoreLinks.facebookUri);
         },
-        icon: Icon(FontAwesomeIcons.facebook));
+        icon: const Icon(FontAwesomeIcons.facebook));
   }
 
   Widget get email {
@@ -42,6 +48,6 @@ class Footer extends StatelessWidget {
         onPressed: () {
           launchUrl(Uri.parse('mailto:mrdev.ps@gmail.com'));
         },
-        icon: Icon(FontAwesomeIcons.envelope));
+        icon: const Icon(FontAwesomeIcons.envelope));
   }
 }

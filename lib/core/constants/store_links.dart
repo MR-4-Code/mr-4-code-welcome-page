@@ -7,4 +7,7 @@ class StoreLinks {
 
   static const facebookUri =
       'https://www.facebook.com/profile.php?id=100092437285741';
+
+  static const webAppLogin =
+      'https://pal-store-web-app-dev-b1125c86e9eb.herokuapp.com/home';
 }
