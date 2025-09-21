@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:palstore_welcome_page/core/constants/locale_keys.dart';
 import 'package:palstore_welcome_page/core/constants/store_links.dart';
 import 'package:palstore_welcome_page/core/presentation/style/palette.dart';
 import 'package:palstore_welcome_page/core/utils/launcher_utils.dart';
@@ -13,15 +15,19 @@ class DownloadForDesktopButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Wrap(
+      spacing: 20.0,
+      runSpacing: 20.0,
+      alignment: WrapAlignment.center,
       children: [
-        _DownloadButtons(
+        DownloadButton(
           icon: FontAwesomeIcons.microsoft,
           title: 'Windows',
           link: StoreLinks.windowsLink,
         ),
-        _DownloadButtons(
+        DownloadButton(
           icon: FontAwesomeIcons.apple,
           title: 'MacOS',
+          isComingSoon: true,
           link: StoreLinks.macOSLink,
         )
       ],
@@ -29,53 +35,66 @@ class DownloadForDesktopButtons extends StatelessWidget {
   }
 }
 
-class _DownloadButtons extends StatefulWidget {
-  const _DownloadButtons(
-      {required this.icon, required this.title, required this.link});
+class DownloadButton extends StatefulWidget {
+  const DownloadButton(
+      {super.key,
+      required this.icon,
+      this.isComingSoon = false,
+      required this.title,
+      required this.link});
 
   final IconData icon;
   final String title;
   final String link;
+  final bool isComingSoon;
 
   @override
-  State<_DownloadButtons> createState() => _DownloadForDesktopButtonsState();
+  State<DownloadButton> createState() => _DownloadForDesktopButtonsState();
 }
 
-class _DownloadForDesktopButtonsState extends State<_DownloadButtons> {
+class _DownloadForDesktopButtonsState extends State<DownloadButton> {
   bool hover = false;
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onHover: (event) {
-        _updateState = true;
-      },
-      onExit: (event) {
-        _updateState = false;
-      },
-      child: TextButton(
-          style: ButtonStyle(
-            side: hover
-                ? const WidgetStatePropertyAll(
-                    BorderSide(color: Palette.lightGreen))
-                : null,
-          ),
-          onPressed: () {
-            LauncherUtils.to(widget.link);
-          },
-          child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(widget.icon,
-                    color: hover ? Colors.blueAccent : Palette.lightGreen,
-                    size: 45.0),
-                const Space.horizontal(5.0),
-                BuildText(
-                    data: widget.title,
-                    size: 18.0,
-                    fontWeight: FontWeight.bold),
-              ])),
+    return Tooltip(
+      message: widget.isComingSoon ? LocaleKeys.comingSoonOn.tr : '',
+      child: MouseRegion(
+        onHover: (event) {
+          _updateState = true;
+        },
+        onExit: (event) {
+          _updateState = false;
+        },
+        child: OutlinedButton(
+            style: ButtonStyle(
+              padding: const WidgetStatePropertyAll(
+                  EdgeInsets.symmetric(horizontal: 15.0, vertical: 30.0)),
+              shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0))),
+              side: hover
+                  ? const WidgetStatePropertyAll(
+                      BorderSide(color: Palette.lightGreen))
+                  : null,
+            ),
+            onPressed: widget.isComingSoon
+                ? null
+                : () {
+                    LauncherUtils.to(widget.link);
+                  },
+            child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(widget.icon,
+                      color: hover ? Colors.blueAccent : null, size: 45.0),
+                  const Space.horizontal(15.0),
+                  BuildText(
+                      data: widget.title,
+                      size: 18.0,
+                      fontWeight: FontWeight.bold),
+                ])),
+      ),
     );
   }
 

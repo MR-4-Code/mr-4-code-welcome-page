@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:palstore_welcome_page/core/constants/assets_keys.dart';
-import 'package:palstore_welcome_page/core/presentation/style/palette.dart';
 import 'package:palstore_welcome_page/core/utils/launcher_utils.dart';
 
 class StoreButton extends StatefulWidget {
@@ -24,11 +24,11 @@ class _StoreButtonState extends State<StoreButton> {
     String title = '';
 
     if (widget.image == Assets.playStore) {
-      icon = Icons.android;
+      icon = FontAwesomeIcons.googlePlay;
       title = 'Android';
       iconColor = Colors.green;
     } else if (widget.image == Assets.appStore) {
-      icon = Icons.apple;
+      icon = FontAwesomeIcons.appStoreIos;
       title = 'App Store';
       iconColor = Colors.black;
     } else {
@@ -36,14 +36,14 @@ class _StoreButtonState extends State<StoreButton> {
       title = 'App Gallery';
       iconColor = Colors.pinkAccent;
     }
-    return TextButton(
+    return OutlinedButton(
         onHover: (value) {
           hover = value;
           setState(() {});
         },
         style: ButtonStyle(
             backgroundColor: WidgetStatePropertyAll(
-                widget.link == null ? Colors.black26 : Palette.offWhite),
+                widget.link == null ? Colors.black26 : null),
             shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
                 side: hover

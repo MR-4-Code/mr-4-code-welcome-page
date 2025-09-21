@@ -21,13 +21,13 @@ class AppName extends StatelessWidget {
             TextSpan(
                 text: 'Pal',
                 style: GoogleFonts.bebasNeue(
-                    color: Palette.offWhite,
+                    color: Palette.dClassicSecondary,
                     fontSize: logoTextSize,
                     fontWeight: FontWeight.bold)),
             TextSpan(
                 text: ' Store',
                 style: GoogleFonts.dancingScript(
-                  color: Palette.lightGreen,
+                  color: Palette.dClassicSecondary,
                   fontSize: logoTextSize - 15.0,
                 ))
           ])),
