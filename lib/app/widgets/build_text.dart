@@ -14,13 +14,12 @@ class BuildText extends StatelessWidget {
   final TextAlign? textAlign;
 
   const BuildText(
-      {Key? key,
+      {super.key,
       required this.data,
       this.color,
       this.size,
       this.fontWeight,
-      this.textAlign})
-      : super(key: key);
+      this.textAlign});
 
   @override
   Widget build(BuildContext context) {

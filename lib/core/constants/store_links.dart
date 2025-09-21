@@ -5,6 +5,9 @@ class StoreLinks {
   static const windowsLink =
       'https://apps.microsoft.com/detail/9PMG8SLVFVTZ?hl=en-us&gl=JO&ocid=pdpshare';
 
+  static const macOSLink =
+      'https://apps.microsoft.com/detail/9PMG8SLVFVTZ?hl=en-us&gl=JO&ocid=pdpshare';
+
   static const facebookUri =
       'https://www.facebook.com/profile.php?id=100092437285741';
 

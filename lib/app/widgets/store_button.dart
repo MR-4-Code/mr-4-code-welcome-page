@@ -8,8 +8,7 @@ class StoreButton extends StatefulWidget {
   final String? link;
   final String image;
 
-  const StoreButton({Key? key, this.link, required this.image})
-      : super(key: key);
+  const StoreButton({super.key, this.link, required this.image});
 
   @override
   State<StoreButton> createState() => _StoreButtonState();
@@ -43,9 +42,9 @@ class _StoreButtonState extends State<StoreButton> {
           setState(() {});
         },
         style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(
+            backgroundColor: WidgetStatePropertyAll(
                 widget.link == null ? Colors.black26 : Palette.offWhite),
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
                 side: hover
                     ? const BorderSide(color: Colors.amberAccent)

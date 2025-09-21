@@ -8,35 +8,30 @@ class Space extends StatelessWidget {
   /// To return [SizedBox] widget by default vertical space
   /// you need horizontal space use [Space.horizontal] or set
   /// [isVertical] to false
-  const Space({required this.space, bool? isVertical, Key? key})
+  const Space({required this.space, bool? isVertical, super.key})
       : _isVertical = isVertical ?? true,
-        _forceSquare = false,
-        super(key: key);
+        _forceSquare = false;
 
   ///To return [SizedBox]  vertical space
-  const Space.vertical(this.space, {Key? key})
+  const Space.vertical(this.space, {super.key})
       : _isVertical = true,
-        _forceSquare = false,
-        super(key: key);
+        _forceSquare = false;
 
   ///To return [SizedBox]  horizontal space
-  const Space.horizontal(this.space, {Key? key})
+  const Space.horizontal(this.space, {super.key})
       : _isVertical = false,
-        _forceSquare = false,
-        super(key: key);
+        _forceSquare = false;
 
   ///To add empty space
-  const Space.empty({Key? key})
+  const Space.empty({super.key})
       : _isVertical = false,
         _forceSquare = false,
-        space = 0.0,
-        super(key: key);
+        space = 0.0;
 
   ///To add square space h & v space
-  const Space.square(this.space, {Key? key})
+  const Space.square(this.space, {super.key})
       : _isVertical = false,
-        _forceSquare = true,
-        super(key: key);
+        _forceSquare = true;
 
   @override
   Widget build(BuildContext context) {

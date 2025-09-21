@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:palstore_welcome_page/app/widgets/download_for_windows_button.dart';
+import 'package:palstore_welcome_page/app/widgets/download_for_desktop_buttons.dart';
 import 'package:palstore_welcome_page/core/constants/locale_keys.dart';
 
 import '/app/widgets/build_main_app_bar.dart';
@@ -18,13 +18,14 @@ const double radius = 35.0;
 final borderRadius = BorderRadius.circular(radius);
 
 class WelcomeScreenBody extends StatelessWidget {
-  const WelcomeScreenBody({Key? key}) : super(key: key);
+  const WelcomeScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     const secondContainerRadius = Radius.circular(radius);
     double margin = MediaQuery.of(context).size.width < 800 ? 20.0 : 40.0;
     return Scaffold(
+      backgroundColor: Palette.dClassicPrimary,
       body: Card(
         margin: EdgeInsets.all(margin),
         shape: RoundedRectangleBorder(
@@ -57,7 +58,7 @@ class WelcomeScreenBody extends StatelessWidget {
                       Space.vertical(10.0),
                       WelcomeScreenHint(),
                       Space.vertical(10.0),
-                      DownloadForWindowsButton(),
+                      DownloadForDesktopButtons(),
                       StoreButtons()
                     ])),
                   ),
@@ -73,7 +74,7 @@ class WelcomeScreenBody extends StatelessWidget {
 }
 
 class StoreButtons extends StatelessWidget {
-  const StoreButtons({Key? key}) : super(key: key);
+  const StoreButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +107,7 @@ class StoreButtons extends StatelessWidget {
 
 class _ToolTipStoreButton extends StatelessWidget {
   final Widget child;
-  const _ToolTipStoreButton({Key? key, required this.child}) : super(key: key);
+  const _ToolTipStoreButton({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +116,7 @@ class _ToolTipStoreButton extends StatelessWidget {
 }
 
 class WelcomeAnim extends StatelessWidget {
-  const WelcomeAnim({Key? key}) : super(key: key);
+  const WelcomeAnim({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +127,7 @@ class WelcomeAnim extends StatelessWidget {
 }
 
 class WelcomeScreenHint extends StatelessWidget {
-  const WelcomeScreenHint({Key? key}) : super(key: key);
+  const WelcomeScreenHint({super.key});
 
   @override
   Widget build(BuildContext context) {

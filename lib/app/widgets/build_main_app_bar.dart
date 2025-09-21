@@ -4,7 +4,7 @@ import 'custom_drawer.dart';
 import 'language_drop_down.dart';
 
 class BuildMainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const BuildMainAppBar({Key? key}) : super(key: key);
+  const BuildMainAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

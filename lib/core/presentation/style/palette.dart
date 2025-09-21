@@ -14,5 +14,11 @@ class Palette {
 
   static const Color primaryColor = Colors.blueGrey;
   static const Color appbarBackground = Colors.blueGrey;
-  static Color secondaryBackground = Colors.green.withOpacity(0.4);
-} //end ColorTemplate
+  static Color secondaryBackground = Colors.green.withValues(alpha: 0.4);
+
+  //dark classic theme colors
+  static const Color dClassicPrimary = Color(0xFF2C3333);
+  static const Color dClassicSecondary = Color(0xFF2E4F4F);
+  static const Color dClassicAvatar = Color(0xFF0E8388);
+  static const Color dClassicLight = Color(0xFFCBE4DE);
+}

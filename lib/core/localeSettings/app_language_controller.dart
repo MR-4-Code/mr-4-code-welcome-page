@@ -7,10 +7,7 @@ import 'general_local_settings.dart';
 class AppLanguageController extends GetxController {
   String _appLocale = GeneralLocaleSettings.defaultLang;
 
-  final String _appLocaleKey = 'localeKey';
-
   RxString currentLang = GeneralLocaleSettings.defaultLang.obs;
-
   RxString currentSourceLang = GeneralLocaleSettings.defaultLang.obs;
 
   @override

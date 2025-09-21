@@ -28,7 +28,7 @@ Up to 3 free stores for each merchant account.
 };
 
 class AboutAppScreen extends StatelessWidget {
-  const AboutAppScreen({Key? key}) : super(key: key);
+  const AboutAppScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +59,7 @@ class Section extends StatelessWidget {
   final String title;
   final String data;
 
-  const Section({Key? key, required this.title, required this.data})
-      : super(key: key);
+  const Section({super.key, required this.title, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,7 @@ class Section extends StatelessWidget {
 
 class Title extends StatelessWidget {
   final String title;
-  const Title({Key? key, required this.title}) : super(key: key);
+  const Title({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

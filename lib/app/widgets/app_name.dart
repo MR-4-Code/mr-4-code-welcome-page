@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '/core/presentation/style/palette.dart';
 
 class AppName extends StatelessWidget {
-  const AppName({Key? key}) : super(key: key);
+  const AppName({super.key});
 
   @override
   Widget build(BuildContext context) {

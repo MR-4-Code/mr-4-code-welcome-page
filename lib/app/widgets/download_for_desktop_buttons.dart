@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:palstore_welcome_page/core/constants/locale_keys.dart';
 import 'package:palstore_welcome_page/core/constants/store_links.dart';
 import 'package:palstore_welcome_page/core/presentation/style/palette.dart';
 import 'package:palstore_welcome_page/core/utils/launcher_utils.dart';
@@ -8,15 +7,41 @@ import 'package:palstore_welcome_page/core/utils/launcher_utils.dart';
 import 'build_text.dart';
 import 'space.dart';
 
-class DownloadForWindowsButton extends StatefulWidget {
-  const DownloadForWindowsButton({Key? key}) : super(key: key);
+class DownloadForDesktopButtons extends StatelessWidget {
+  const DownloadForDesktopButtons({super.key});
 
   @override
-  State<DownloadForWindowsButton> createState() =>
-      _DownloadForWindowsButtonState();
+  Widget build(BuildContext context) {
+    return const Wrap(
+      children: [
+        _DownloadButtons(
+          icon: FontAwesomeIcons.microsoft,
+          title: 'Windows',
+          link: StoreLinks.windowsLink,
+        ),
+        _DownloadButtons(
+          icon: FontAwesomeIcons.apple,
+          title: 'MacOS',
+          link: StoreLinks.macOSLink,
+        )
+      ],
+    );
+  }
 }
 
-class _DownloadForWindowsButtonState extends State<DownloadForWindowsButton> {
+class _DownloadButtons extends StatefulWidget {
+  const _DownloadButtons(
+      {required this.icon, required this.title, required this.link});
+
+  final IconData icon;
+  final String title;
+  final String link;
+
+  @override
+  State<_DownloadButtons> createState() => _DownloadForDesktopButtonsState();
+}
+
+class _DownloadForDesktopButtonsState extends State<_DownloadButtons> {
   bool hover = false;
 
   @override
@@ -31,23 +56,23 @@ class _DownloadForWindowsButtonState extends State<DownloadForWindowsButton> {
       child: TextButton(
           style: ButtonStyle(
             side: hover
-                ? const MaterialStatePropertyAll(
+                ? const WidgetStatePropertyAll(
                     BorderSide(color: Palette.lightGreen))
                 : null,
           ),
           onPressed: () {
-            LauncherUtils.to(StoreLinks.windowsLink);
+            LauncherUtils.to(widget.link);
           },
           child: Row(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(FontAwesomeIcons.windows,
+                Icon(widget.icon,
                     color: hover ? Colors.blueAccent : Palette.lightGreen,
                     size: 45.0),
                 const Space.horizontal(5.0),
-                const BuildText(
-                    data: LocaleKeys.downloadForWindows,
+                BuildText(
+                    data: widget.title,
                     size: 18.0,
                     fontWeight: FontWeight.bold),
               ])),

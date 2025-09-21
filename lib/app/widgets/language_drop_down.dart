@@ -6,7 +6,7 @@ import 'package:palstore_welcome_page/core/localeSettings/app_language_controlle
 import 'package:palstore_welcome_page/core/localeSettings/lang_enum.dart';
 
 class LanguageDropDown extends StatelessWidget {
-  const LanguageDropDown({Key? key}) : super(key: key);
+  const LanguageDropDown({super.key});
 
   @override
   Widget build(BuildContext context) {

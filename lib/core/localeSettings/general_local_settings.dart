@@ -5,7 +5,7 @@ import 'translate.dart';
 
 class GeneralLocaleSettings {
   static bool isSysLang = false;
-  static String defaultLang = ELanguages.english.code;
+  static String defaultLang = ELanguages.arabic.code;
   static String _currentLang = defaultLang;
 
   static Locale get currentLocale => Locale(_currentLang);
